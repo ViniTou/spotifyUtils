@@ -1,4 +1,5 @@
 FROM php:7.1.2-apache
+RUN docker-php-ext-install pdo pdo_mysql
 
 COPY Docker/Apache/000-default.conf /etc/apache2/sites-available/000-default.conf
 

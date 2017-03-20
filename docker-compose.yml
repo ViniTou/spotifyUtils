@@ -5,3 +5,15 @@ server:
     - "443:443"
   volumes:
     - .:/var/www
+  links:
+    - db
+
+db:
+  image: mariadb:10.0.20
+  ports:
+    - "3306:3306"
+  environment:
+    - MYSQL_ROOT_PASSWORD=password
+    - MYSQL_DATABASE=spotify_utils
+  volumes:
+    - ./.database/:/var/lib/mysql:rw
